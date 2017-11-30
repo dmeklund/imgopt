@@ -3,7 +3,6 @@
 #include "imgopt/thpool.h"
 
 #include <math.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <assert.h>
 
@@ -41,7 +40,7 @@ static enum Error dftFunction(struct Node *node, int8_t offset)
         struct Edge *edge = node->inEdges->values[index];
         const complex double value = edge->values[1-offset];
 //        printf("Input edge %d has value (%f%+fi)\n", index, creal(value), cimag(value));
-        result += value * cexp(-I * 2 * M_PI * index / k);
+        result += value * cexp(-I * 2 * M_PI * index / k) / n;
     }
     for (int out_index = 0; out_index < node->outEdges->count; ++out_index)
     {

@@ -8,6 +8,10 @@
 #define xrealloc GC_REALLOC
 #define xmalloc_atomic GC_MALLOC_ATOMIC
 
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif
+
 enum Error
 {
     OK,

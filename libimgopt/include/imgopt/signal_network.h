@@ -4,6 +4,7 @@
 #include "imgopt/util.h"
 
 #include <complex.h>
+#include <stdint.h>
 
 struct Node;
 typedef enum Error (*NodeFunction)(struct Node *node, int8_t offset);
@@ -29,6 +30,12 @@ struct Network
     struct Edge *inputEdge;
     struct Edge *outputEdge;
     struct Array *allNodes;
+};
+
+struct NodeFunctionDefinition
+{
+    NodeFunction forward_func;
+    NodeFunction reverse_func;
 };
 
 #endif /* _IMGOPT_SIGNAL_NETWORK_H */
